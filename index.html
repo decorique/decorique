@@ -646,7 +646,7 @@ html.js .reveal.is-live .rv-line{position:absolute;z-index:3;left:var(--m);botto
             <span class="go">Ask for a quote &rarr;</span>
           </a>
           <a class="item" href="#gifts">
-            <span class="row">Scrapbooks, hampers, bouquets and more</span>
+            <span class="row">Hand-painted T-shirts, scrapbooks, hampers, bouquets and more</span>
             <span class="d">Every gift is made to order and starts with a 50% advance.</span>
             <span class="go">See all the gifts &darr;</span>
           </a>
@@ -684,6 +684,7 @@ html.js .reveal.is-live .rv-line{position:absolute;z-index:3;left:var(--m);botto
 
     <div class="gift-grid" data-stagger>
       <article class="gift"><div class="ph"><img src="img/gift-polaroid.jpg" alt="Polaroids tied with red bows, pegged along a birthday tent" width="952" height="1188" loading="lazy"></div><div class="gift-t"><h3>Polaroid set</h3></div><p>Polaroids from your photos, each with a caption you pick.</p><a class="btn ink" href="#book" data-pick="Polaroid set">Ask for a quote</a></article>
+      <article class="gift"><div class="ph"><img src="img/gift-tshirt.jpg" alt="White T-shirt with a Spider-Man portrait hand-painted on the back" width="517" height="684" loading="lazy"></div><div class="gift-t"><h3>Hand-painted T-shirt</h3></div><p>One of one, painted by hand: no prints, no stickers. Any design, any size.</p><a class="btn ink" href="#book" data-pick="Hand-painted T-shirt">Ask for a quote</a></article>
       <article class="gift"><div class="ph"><img src="img/chart-long.jpg" alt="A long black chart board of photos, doodles and handwritten notes" width="1050" height="1400" loading="lazy"></div><div class="gift-t"><h3>Chart board</h3></div><p>Their story on one board, letter by letter, photo by photo.</p><a class="btn ink" href="#book" data-pick="Chart board">Ask for a quote</a></article>
       <article class="gift"><div class="ph"><img src="img/scrapbook.jpg" alt="Handmade scrapbook with stickers, photos and a teddy" width="1050" height="1400" loading="lazy"></div><div class="gift-t"><h3>Scrapbook</h3></div><p>Page after page of photos and notes, with memories that pop up.</p><a class="btn ink" href="#book" data-pick="Scrapbook">Ask for a quote</a></article>
       <article class="gift"><div class="ph"><img src="img/hamper.jpg" alt="Gift hamper of teddies, letters, a scrapbook, a bouquet and small gifts" width="1400" height="1050" loading="lazy" style="object-position:40% 50%"></div><div class="gift-t"><h3>Gift hamper</h3></div><p>Teddies, letters and their favourite things, packed as one.</p><a class="btn ink" href="#book" data-pick="Gift hamper">Ask for a quote</a></article>
@@ -790,6 +791,7 @@ html.js .reveal.is-live .rv-line{position:absolute;z-index:3;left:var(--m);botto
               <optgroup label="Customised gifts (50% advance once quoted)">
                 <option>Polaroid set</option>
                 <option>Chart board</option>
+                <option>Hand-painted T-shirt</option>
                 <option>Scrapbook</option>
                 <option>Gift hamper</option>
                 <option>Gift box with a letter</option>
@@ -1057,6 +1059,7 @@ var PACKAGE_PRICE = {
   'Full event': 0,
   'Polaroid set': 0,
   'Chart board': 0,
+  'Hand-painted T-shirt': 0,
   'Scrapbook': 0,
   'Gift hamper': 0,
   'Gift box with a letter': 0,
@@ -1090,7 +1093,7 @@ function estimate(){
   var base = PACKAGE_PRICE[el.pkg.value] || 0, ex = extras(), add = ex.reduce(function(t,k){ return t + (EXTRA_PRICE[k]||0); }, 0);
   return {base:base, add:add, total:base + add, quote:base + add === 0};
 }
-function isGift(){ return /^(Polaroid set|Chart board|Scrapbook|Gift hamper|Gift box|Themed bouquet|Photo Ferris wheel|Polaroid tree)/.test(el.pkg.value); }
+function isGift(){ return /^(Polaroid set|Chart board|Hand-painted T-shirt|Scrapbook|Gift hamper|Gift box|Themed bouquet|Photo Ferris wheel|Polaroid tree)/.test(el.pkg.value); }
 function advance(){ var e = estimate(); return isGift() && !e.quote ? Math.ceil(e.total * GIFT_ADVANCE) : 0; }
 function advanceLine(){
   if(!isGift()) return '';
